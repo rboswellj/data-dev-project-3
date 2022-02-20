@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h3>Reservation Summary</h3>
+<ul>
+    <li>Name: {{ fullName }}</li>
+    <li>Flight Number: {{ flightNum }}</li>
+    <li>Seating Preference: {{ seatPref }}</li>
+    <li>Meal Preference: {{ meal }}</li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <h3>Choose a Flight</h3>
+
+   <table class='table table-striped'>
+    <thead class="thead-dark">
+      <tr> <th>Flight Number</th><th>Depart</th><th>Arrive</th> </tr>
+    </thead>
+    <tbody>
+         {% for i in flights %}   
+            <tr> <th>{{i.flight}}</th><th>{{i.origin}}</th><th>{{i.destination}}</th> </tr>
+         {% endfor %} 
+    </tbody>
+   </table>
+
+    <h3>Reservation Form</h3>
+    <form id="reservationForm" name="reservation" action="/book/" method="post">
+        <div class="form-group">
+            <label for="fullName">Full Name:</label><br />
+            <input name="fullName" type="text">
+        </div>
+        <div class="form-group">
+            <lable for="flightNum" type="text">Flight Number:</label><br />
+            <input name="flightNum" type="text">
+        </div>
+        <div class="form-group">
+            <label for="seatPref">Seating Preference:</label><br />
+            <select name="seatPref">
+                <option value="coach">Coach</option>
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First Class</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="meal">Meal Preference</label><br/>
+            <input type="radio" id="beef" name="meal" value="beef">
+            <label for="beef">Beef</label><br/>
+            <input type="radio" id="chicken" name="meal" value="chicken">
+            <label for="Chicken">Chicken</label><br/>
+            <input type="radio" id="vegan" name="meal" value="vegan">
+            <label for="vegan">Vegan</label>
+        </div>
+        <input type="submit" value="Book Flight">
+    </form>
+{% endblock %}
